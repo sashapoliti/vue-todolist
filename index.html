@@ -24,7 +24,7 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <!-- JS -->
     <script src="js/script.js" type="module" defer></script>
-    <title>To Do List</title>
+    <title>Kirby's To-Do List</title>
   </head>
   <body>
     <div id="app">
@@ -50,14 +50,15 @@
               :class="{'text-decoration-line-through' : item.done}"
               @click="toggleDone(item.id)"
             >
-              {{item.text}}
+              <h5>{{ item.title }}</h5>
+              <p>{{ item.description }}</p>
             </span>
             <i class="fa-regular fa-trash-can" @click="removeItem(item.id)"></i>
           </li>
         </ul>
 
         <!-- input -->
-        <div class="mb-3">
+        <div class="add-task">
           <label for="todotext" class="form-label">Inserisci to do</label>
           <input
             type="text"
@@ -66,7 +67,7 @@
             v-model="itemText"
             @keyup.enter="addItem"
           />
-          <button class="btn btn-primary" @click="addItem">Aggiungi</button>
+          <button @click="addItem">Aggiungi</button>
       </main>
     </div>
   </body>
