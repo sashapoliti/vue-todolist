@@ -29,13 +29,10 @@ createApp({
         text : this.itemText,
         done : false
       };
-      let nextId = 0;
-      this.toDo.forEach(element => {
-        if(nextId < element.id) {
-          nextId = element.id;
-        }
-      });
-      newItem.id = nextId + 1;
+      const result = this.toDo.reduce((acc, element) => {
+        return element.id > acc ? element.id : acc;
+      }, 0); //reduce for max value
+      newItem.id = result + 1;
       this.toDo.push(newItem);
       this.itemText = '';
     }
