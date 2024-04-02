@@ -50,6 +50,18 @@
             <i class="fa-regular fa-trash-can" @click="removeItem(item.id)"></i>
           </li>
         </ul>
+
+        <!-- input -->
+        <div class="mb-3">
+          <label for="todotext" class="form-label">Inserisci to do</label>
+          <input
+            type="text"
+            class="form-control"
+            id="todotext"
+            v-model="itemText"
+            @keyup.enter="addItem"
+          />
+          <button class="btn btn-primary" @click="addItem">Aggiungi</button>
       </main>
     </div>
   </body>
