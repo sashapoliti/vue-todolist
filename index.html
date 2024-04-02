@@ -36,9 +36,19 @@
       <!-- main -->
       <main class="container my-4 bg-light">
         <ul class="list-group list-group-flush">
-          <li class="list-group-item"></li>
-          <li class="list-group-item"></li>
-          <li class="list-group-item"></li>
+          <li
+            class="list-group-item d-flex justify-content-between"
+            v-for="(item, index) in toDo"
+            :key="item.id"
+          >
+            <span
+              :class="{'text-decoration-line-through' : item.done}"
+              @click="toggleDone(item.id)"
+            >
+              {{item.text}}
+            </span>
+            <i class="fa-regular fa-trash-can" @click="removeItem(item.id)"></i>
+          </li>
         </ul>
       </main>
     </div>
