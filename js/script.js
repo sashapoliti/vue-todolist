@@ -26,7 +26,7 @@ createApp({
     addItem() {
       const newItem = {
         id : null,
-        text : this.itemText,
+        description : this.itemText,
         done : false
       };
       const result = this.toDo.reduce((acc, element) => {
