@@ -6,7 +6,8 @@ createApp({
   data() {
     return {
       toDo,
-      itemText : ''
+      itemText : '',
+      done : ''
     };
   },
   methods: {
@@ -39,6 +40,18 @@ createApp({
       this.itemText = '';
     }
   },
-  computed: {},
+  computed: {
+    filteredToDo() {
+      return this.toDo.filter((element) => {
+        if (this.done === '') {
+          return true
+        } else if (this.done === 'false') {
+          return element.done === false
+        } else if (this.done === 'true') {
+          return element.done === true
+        }
+      })
+    }
+  },
   mounted() {},
 }).mount("#app");

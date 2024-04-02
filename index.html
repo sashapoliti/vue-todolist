@@ -31,6 +31,11 @@
       <!-- header -->
       <header class="bg-light p-4 d-flex justify-content-between">
         <h1>boolean</h1>
+        <select name="done" id="done" v-model="done">
+          <option value="">tutto</option>
+          <option value="true">fatto</option>
+          <option value="false">da fare</option>
+      </select>
       </header>
 
       <!-- main -->
@@ -38,7 +43,7 @@
         <ul class="list-group list-group-flush">
           <li
             class="list-group-item d-flex justify-content-between"
-            v-for="(item, index) in toDo"
+            v-for="(item, index) in filteredToDo"
             :key="item.id"
           >
             <span
